@@ -13,10 +13,11 @@ class CreateMovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_movie)
+
         //actionbar
         val actionbar = supportActionBar
         //set actionbar title
-        actionbar!!.title = "New Activity"
+        actionbar!!.title = "Movflix"
         //set back button
         actionbar.setDisplayHomeAsUpEnabled(true)
         actionbar.setDisplayHomeAsUpEnabled(true)

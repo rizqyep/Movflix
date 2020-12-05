@@ -19,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        swiperefresh.setOnRefreshListener {
+            movieList.clear()
+            showMovies()
+        }
 
         var message = intent.getStringExtra("success")
 
@@ -65,6 +69,7 @@ class MainActivity : AppCompatActivity() {
                 print(movieList)
                 val adapter = MovieAdapter(movieList)
                 rvMovie.adapter = adapter
+                swiperefresh.isRefreshing = false
             }
 
         })

@@ -1,5 +1,6 @@
 package com.rizqyep.tubesappmob
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,12 +12,18 @@ class MovieAdapter(private val list: ArrayList<MovieResponse>) :
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         fun bind(movieResponse: MovieResponse){
             with(itemView){
+                val id = "${movieResponse._id}"
                 val title = "${movieResponse.name}"
-                val year_released = "${movieResponse.year_released}"
+                val yearReleased = "${movieResponse.year_released}"
                 val rating = "Rating : ${movieResponse.rating}"
-
+                val currentContext = itemView.context
+               cv_view.setOnClickListener{
+                   var intent = Intent(context, MovieDetailActivity::class.java)
+                   intent.putExtra("id", id)
+                   context.startActivity(intent)
+               }
                 tv_title.text = title
-                tv_year_released.text = year_released
+                tv_year_released.text = yearReleased
                 tv_rating.text = rating
             }
         }
